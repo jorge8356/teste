@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout de Fotos Animado</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px; 
+        }
+
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-item img {
+            width: 100%; /* Assegura que a imagem ocupe todo o espaço disponível na célula da grade */
+            height: auto; /* Mantém a proporção da imagem */
+            display: block; /* Remove espaços em branco abaixo das imagens */
+            transition: transform 0.3s ease; /* Adiciona uma transição suave */
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.1); /* Aumenta a escala da imagem ao passar o mouse sobre ela */
+        }
+
+        /* Efeito de sobreposição */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Sobreposição com fundo preto semi-transparente */
+            opacity: 0; /* Inicialmente invisível */
+            transition: opacity 0.3s ease; /* Transição suave para a opacidade */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid-item:hover .overlay {
+            opacity: 1; /* Torna a sobreposição visível ao passar o mouse sobre a imagem */
+        }
+
+        .overlay-content {
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="caminho_para_a_imagem1.jpg" alt="Foto 1">
+            <div class="overlay">
+                <div class="overlay-content">
+                    <!-- Conteúdo da sobreposição -->
+                    Legenda da Imagem 1
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="caminho_para_a_imagem2.jpg" alt="Foto 2">
+            <div class="overlay">
+                <div class="overlay-content">
+                    <!-- Conteúdo da sobreposição -->
+                    Legenda da Imagem 2
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <img src="caminho_para_a_imagem3.jpg" alt="Foto 3">
+            <div class="overlay">
+                <div class="overlay-content">
+                    <!-- Conteúdo da sobreposição -->
+                    Legenda da Imagem 3
+                </div>
+            </div>
+        </div>
+        <!-- Adicione mais divs .grid-item conforme necessário para mais fotos -->
+    </div>
+</body>
+</html>
